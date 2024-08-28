@@ -1,7 +1,13 @@
+import Chat from "./components/chat/Chat";
+import Detail from "./components/detail/Detail";
+import List from "./components/list/List";
+
 function App() {
   return (
-    <div>
-      <h1>Hello World</h1>
+    <div className=" container w-[90vw] h-[90vh] bg-gray-900 text-white border border-white rounded-md  opacity-75  flex ">
+      <List />
+      <Chat />
+      <Detail />
     </div>
   );
 }
