@@ -1,5 +1,5 @@
-import React from "react";
 import MyImg from "../../../assets/avatar.png";
+import ImageCentar from "./ImageCentar";
 
 const MyFriendText = () => {
   return (
@@ -10,6 +10,8 @@ const MyFriendText = () => {
         alt=""
       />
       <div className="flex flex-col text-right">
+        <ImageCentar />
+
         <p className="bg-gray-950  p-5 rounded-md text-left">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea vel eum,
           repellendus placeat autem eveniet laboriosam reiciendis ratione unde

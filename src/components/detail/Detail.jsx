@@ -1,7 +1,6 @@
-import React from "react";
 
 const Detail = () => {
-  return <div className="flex-[2]">Detail</div>;
+  return <div className="flex-[2]"></div>;
 };
 
 export default Detail;
