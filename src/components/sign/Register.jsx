@@ -28,12 +28,12 @@ const Register = () => {
   }, [avatar.url]);
 
   return (
-    <div className="flex-[1] justify-center   w-full items-center">
-      <div className="bg-white p-8 flex h-[87vh] jue flex-col rounded-lg shadow-md ">
-        <h1 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
+    <div className="min-h-screen flex-[1] flex justify-center items-center">
+      <div className="bg-white p-8 flex  justify-evenly flex-col rounded-lg shadow-md w-full max-w-md">
+        <h1 className="text-2xl font-semibold text-gray-800 mb-2 text-center">
           Create An Account
         </h1>
-        <form className="space-y-6">
+        <form className="space-y-3">
           <div className="flex flex-col items-center">
             <label htmlFor="file" className="cursor-pointer">
               <div className="relative">
@@ -74,7 +74,7 @@ const Register = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white rounded-lg p-2 hover:bg-blue-600 transition duration-200"
+            className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white rounded-lg p-2 hover:opacity-90 transition duration-200"
           >
             Create Account
           </button>
