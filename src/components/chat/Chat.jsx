@@ -3,7 +3,7 @@ import Centar from "./Centar";
 import Bottom from "./Bottom";
 const Chat = () => {
   return (
-    <div className="flex-[2] flex flex-col border-r-gray-600 border-r h-full">
+    <div className="flex-[3] flex flex-col border-r-gray-600 border-r h-full">
       {/* Top section */}
 
       <Top />
