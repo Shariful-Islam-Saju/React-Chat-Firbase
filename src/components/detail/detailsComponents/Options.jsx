@@ -23,7 +23,7 @@ const Options = () => {
           <FaArrowDown className="w-7 h-7 p-2 rounded-full cursor-pointer bg-slate-800" />
         </div>
 
-        <div className="max-h-[190px] overflow-hidden">
+        <div className="max-h-[150px] overflow-hidden">
           <SharedImg />
           <SharedImg />
           <SharedImg />
@@ -40,6 +40,7 @@ const Options = () => {
         </div>
       </div>{" "}
       <button className="bg-red-500 py-1 rounded-md">Block User</button>
+      <button className="bg-blue-500 py-1 rounded-md">Logout</button>
     </div>
   );
 };
