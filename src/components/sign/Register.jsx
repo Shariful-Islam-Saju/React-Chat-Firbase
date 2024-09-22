@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import AvatarImg from "../../assets/avatar.png";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Flip, toast } from "react-toastify";
+import { auth } from "../../lib/firebase";
 
 const Register = () => {
   const [avatar, setAvatar] = useState({
@@ -27,24 +29,37 @@ const Register = () => {
       }
     };
   }, [avatar.url]);
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
-    const formData = new FormData(e);
-    const form = Object.fromEntries(formData.entries());
+    const formData = new FormData(e.target);
+    const { name, email, password } = Object.fromEntries(formData.entries());
 
-    console.log(form);
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
 
-    toast.success("Account Create", {
-      position: "bottom-right",
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      theme: "dark",
-      transition: Flip,
-    });
+      toast.success("Account Create SuccessFully", {
+        position: "bottom-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark",
+        transition: Flip,
+      });
+    } catch (error) {
+      toast.error(error.massage, {
+        position: "bottom-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark",
+        transition: Flip,
+      });
+    }
   }
   return (
     <div className="min-h-screen flex-[1] flex justify-center items-center">
@@ -80,13 +95,13 @@ const Register = () => {
               type="text"
               placeholder="Username"
               name="name"
-              className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 text-black focus:ring-blue-500"
             />
             <input
               type="email"
               placeholder="Email"
               name="email"
-              className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border border-gray-300 rounded-lg p-2 focus:outline-none text-black focus:ring-2 focus:ring-blue-500"
             />
             <input
               type="password"

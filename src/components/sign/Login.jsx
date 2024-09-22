@@ -1,8 +1,13 @@
 import { Flip, toast } from "react-toastify";
 
 const Login = () => {
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+    const formData = new FormData(e.target);
+    const { email, password } = Object.fromEntries(formData.entries());
+    // try {
+    // } catch (error) {}
+
     toast.success("Sign In SuccessFul", {
       position: "bottom-right",
       autoClose: 1500,
@@ -25,17 +30,19 @@ const Login = () => {
             <input
               type="email"
               placeholder="Email"
-              className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              name="email"
+              className="border border-gray-300 rounded-lg p-2 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <input
               type="password"
               placeholder="Password"
-              className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              name="password"
+              className="border border-gray-300 rounded-lg p-2 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white rounded-lg p-2 hover:opacity-90 transition duration-200"
+            className="w-full bg-gradient-to-r from-blue-500  via-purple-500 to-pink-500 text-white rounded-lg p-2 hover:opacity-90 transition duration-200"
           >
             Sign In
           </button>
