@@ -5,9 +5,9 @@ import Account from "./components/sign/Account";
 import Toastify from "./components/Toastify/Toastify";
 
 function App() {
-  const user = false;
+  const user = true;
   return (
-    <div className=" container w-[90vw] h-[90vh] bg-gray-900  text-white border mt-7 border-white rounded-md  flex  ">
+    <div className=" container w-[90vw] h-[90vh] bg-gray-800/90  text-white border mt-7 border-white rounded-md  flex  ">
       {user ? (
         <>
           <List />

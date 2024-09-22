@@ -4,7 +4,7 @@ import SharedImg from "./SharedImg";
 
 const Options = () => {
   return (
-    <div className="flex flex-col p-5 gap-3 ">
+    <div className="flex flex-col p-5 gap-3 min-w-72">
       <div>
         <div className="flex items-center justify-between">
           <span> Chat Setting</span>
