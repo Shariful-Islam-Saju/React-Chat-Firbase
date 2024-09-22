@@ -8,7 +8,7 @@ body {
   align-items: center;
   justify-content: center;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-position: center;
   color: white;
   position: relative;

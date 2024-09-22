@@ -29,6 +29,12 @@ const Register = () => {
   }, [avatar.url]);
   function handleSubmit(e) {
     e.preventDefault();
+
+    const formData = new FormData(e);
+    const form = Object.fromEntries(formData.entries());
+
+    console.log(form);
+
     toast.success("Account Create", {
       position: "bottom-right",
       autoClose: 1500,
@@ -66,28 +72,32 @@ const Register = () => {
               accept="image/*"
               style={{ display: "none" }}
               onChange={handleImageChange}
+              name="profileImg"
             />
           </div>
           <div className="flex flex-col space-y-2">
             <input
               type="text"
               placeholder="Username"
+              name="name"
               className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <input
               type="email"
               placeholder="Email"
+              name="email"
               className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <input
               type="password"
               placeholder="Password"
-              className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              name="password"
+              className="border border-gray-300 text-black rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white rounded-lg p-2 hover:opacity-90 transition duration-200"
+            className="w-full bg-gradient-to-r from-blue-500  via-purple-500 to-pink-500 text-white rounded-lg p-2 hover:opacity-90 transition duration-200"
           >
             Create Account
           </button>
