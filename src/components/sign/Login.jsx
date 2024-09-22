@@ -1,13 +1,26 @@
-import React from "react";
+import { Flip, toast } from "react-toastify";
 
 const Login = () => {
+  function handleSubmit(e) {
+    e.preventDefault();
+    toast.success("Sign In SuccessFul", {
+      position: "bottom-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "dark",
+      transition: Flip,
+    });
+  }
   return (
     <div className="min-h-screen  flex-[1] flex justify-center items-center">
       <div className="bg-white p-8 flex flex-col justify-evenly  rounded-lg shadow-md w-full max-w-md">
         <h1 className="text-3xl font-semibold text-gray-800 mb-6 text-center">
           Welcome Back
         </h1>
-        <form className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div className="flex flex-col space-y-2">
             <input
               type="email"
@@ -27,12 +40,6 @@ const Login = () => {
             Sign In
           </button>
         </form>
-        <p className="text-center text-gray-500 mt-4">
-          Don’t have an account?{" "}
-          <a href="/register" className="text-blue-500 hover:underline">
-            Sign up
-          </a>
-        </p>
       </div>
     </div>
   );

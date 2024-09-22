@@ -2,6 +2,7 @@ import Chat from "./components/chat/Chat";
 import Detail from "./components/detail/Detail";
 import List from "./components/list/List";
 import Account from "./components/sign/Account";
+import Toastify from "./components/Toastify/Toastify";
 
 function App() {
   const user = false;
@@ -16,6 +17,8 @@ function App() {
       ) : (
         <Account />
       )}
+
+      <Toastify />
     </div>
   );
 }

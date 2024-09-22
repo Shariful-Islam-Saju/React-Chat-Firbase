@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import AvatarImg from "../../assets/avatar.png";
+import { Flip, toast } from "react-toastify";
 
 const Register = () => {
   const [avatar, setAvatar] = useState({
@@ -26,14 +27,26 @@ const Register = () => {
       }
     };
   }, [avatar.url]);
-
+  function handleSubmit(e) {
+    e.preventDefault();
+    toast.success("Account Create", {
+      position: "bottom-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "dark",
+      transition: Flip,
+    });
+  }
   return (
     <div className="min-h-screen flex-[1] flex justify-center items-center">
       <div className="bg-white p-8 flex  justify-evenly flex-col rounded-lg shadow-md w-full max-w-md">
         <h1 className="text-2xl font-semibold text-gray-800 mb-2 text-center">
           Create An Account
         </h1>
-        <form className="space-y-3">
+        <form onSubmit={handleSubmit} className="space-y-3">
           <div className="flex flex-col items-center">
             <label htmlFor="file" className="cursor-pointer">
               <div className="relative">
