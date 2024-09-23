@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import AvatarImg from "../../assets/avatar.png";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Flip, toast } from "react-toastify";
-import { auth } from "../../lib/firebase";
+import { auth, db } from "../../lib/firebase";
+import { setDoc, doc } from "firebase/firestore";
 
 const Register = () => {
   const [avatar, setAvatar] = useState({
@@ -36,8 +37,18 @@ const Register = () => {
     const { name, email, password } = Object.fromEntries(formData.entries());
 
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+      console.log(res.user.uid);
+      await setDoc(doc(db, "user", res.user.uid), {
+        name,
+        email,
+        id: res.user.uid,
+        blocked: [],
+      });
 
+      await setDoc(doc(db, "userChat", res.user.uid), {
+        chat: [],
+      });
       toast.success("Account Create SuccessFully", {
         position: "bottom-right",
         autoClose: 1500,
@@ -49,7 +60,8 @@ const Register = () => {
         transition: Flip,
       });
     } catch (error) {
-      toast.error(error.massage, {
+      console.log(error);
+      toast.error(error.message, {
         position: "bottom-right",
         autoClose: 1500,
         hideProgressBar: false,
